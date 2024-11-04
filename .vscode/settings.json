@@ -1,0 +1,18 @@
+{
+    // 【エディタ全体の設定】
+    // ファイル保存時に行末の空白を削除する
+    "files.trimTrailingWhitespace": true,
+    // デフォルト改行コードは LF 固定
+    "files.eol": "\n",
+    // 最終行以降に追記した場合に追加分だけが差分になるように末尾に改行を追加する
+    "files.insertFinalNewline": true,
+    // 【拡張機能設定】
+    // Git Blame のメッセージを行末に表示する
+    "gitblame.inlineMessageEnabled": true,
+    // Git Blame のメッセージ形式設定
+    "gitblame.inlineMessageFormat": "${author.name} (${time.ago}) ${commit.summary}",
+    // 【Go言語固有の設定】
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.useLanguageServer": true,
+    "go.gopath": "/go",
+}

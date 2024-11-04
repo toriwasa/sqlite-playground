@@ -1,0 +1,8 @@
+project_name: sqlite-playground
+builds:
+  - env: [CGO_ENABLED=0]
+    main: ./cmd/sqlite-playground/main.go
+archives:
+  - format_overrides:
+    - goos: windows
+      format: zip
