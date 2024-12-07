@@ -22,14 +22,18 @@ func initUsage() {
 // メイン処理
 func Main() {
 	// -v でログを冗長に出力する
-	// ポインタ型で返ってくるので値型に変換して取得する
-	isVerbose := *flag.Bool("v", false, "output verbose log")
+	// この時点ではパラメータの値はnilが入ったポインタ型
+	// flag.Parse() 実行時に初めて値が格納される
+	isVerbosePtr := flag.Bool("v", false, "output verbose log")
 
 	// CLIのUsageを設定する
 	initUsage()
 
 	// コマンドライン引数を解析する
 	flag.Parse()
+
+	// 解析後の値を取得する
+	isVerbose := *isVerbosePtr
 
 	// verbose モードでない場合はログを出力しない
 	if !isVerbose {
