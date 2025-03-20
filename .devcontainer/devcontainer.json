@@ -13,6 +13,7 @@
         "vscode": {
           "extensions": [
                 "golang.go",
+                "saoudrizwan.claude-dev",
                 "GitHub.copilot",
                 "mhutchie.git-graph",
                 "waderyan.gitblame",
