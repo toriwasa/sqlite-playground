@@ -160,3 +160,78 @@ func GetDailyStockPrices(dbPath string) ([]models.DailyStockPrice, error) {
 
 	return dailyPrices, nil
 }
+
+// GetDailyStockPricesByDateRange はSQLiteのdaily_stock_priceテーブルから
+// 指定された銘柄コードと日付範囲に一致する日次株価情報を取得します。
+//
+// 引数:
+//   - dbPath: SQLiteデータベースファイルのパス
+//   - stockID: 取得する銘柄コード
+//   - startDate: 取得する日付の始点（この日付を含む）
+//   - endDate: 取得する日付の終点（この日付を含む）
+//
+// 戻り値:
+//   - 条件に一致する日次株価情報の配列
+//   - エラー（データベース操作に失敗した場合）
+func GetDailyStockPricesByDateRange(dbPath string, stockID string, startDate time.Time, endDate time.Time) ([]models.DailyStockPrice, error) {
+	// データベース接続を開く
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	// 日付をISO 8601形式の文字列に変換
+	startDateStr := startDate.Format(time.RFC3339[:10]) // YYYY-MM-DD形式
+	endDateStr := endDate.Format(time.RFC3339[:10])     // YYYY-MM-DD形式
+
+	// クエリを実行
+	query := "SELECT stock_id, price_date, price FROM " + dailyStockPriceTableName +
+		" WHERE stock_id = ? AND price_date >= ? AND price_date <= ?"
+	rows, err := db.Query(query, stockID, startDateStr, endDateStr)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query data: %w", err)
+	}
+	defer rows.Close()
+
+	// 結果を格納するスライス
+	var dailyPrices []models.DailyStockPrice
+
+	// 各行を処理
+	for rows.Next() {
+		var stockID string
+		var dateStr string
+		var price float64
+
+		// 行のデータを取得
+		err := rows.Scan(&stockID, &dateStr, &price)
+		if err != nil {
+			return nil, fmt.Errorf("failed to scan row: %w", err)
+		}
+
+		// 日付文字列をtime.Time型に変換
+		priceDate, err := time.Parse(time.RFC3339[:10], dateStr) // YYYY-MM-DD形式
+		if err != nil {
+			return nil, fmt.Errorf("failed to parse date: %w", err)
+		}
+
+		// 日次株価情報を作成
+		dailyPrice := models.DailyStockPrice{
+			PriceDate: priceDate,
+			StockPrice: models.StockPrice{
+				StockID: stockID,
+				Price:   price,
+			},
+		}
+
+		// 結果に追加
+		dailyPrices = append(dailyPrices, dailyPrice)
+	}
+
+	// エラーをチェック
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("error during iteration: %w", err)
+	}
+
+	return dailyPrices, nil
+}
