@@ -22,8 +22,8 @@ type DailyStockPrice struct {
 
 // n個の株価情報の統計値を示す構造体
 type StockPriceStatistics struct {
-	// 株価情報のリスト
-	StockPrices []StockPrice
+	// 銘柄コード文字列
+	StockID string
 	// 平均値
 	Average float64
 	// 最大値
@@ -32,4 +32,14 @@ type StockPriceStatistics struct {
 	Min float64
 	// 標準偏差
 	StandardDeviation float64
+}
+
+// 連続するn個の日次株価情報の統計値を示す構造体
+type DailyStockPriceStatistics struct {
+	// 株価情報の日付始点
+	StartDate time.Time
+	// 株価情報の日付終点
+	EndDate time.Time
+	// 株価統計情報
+	StockPriceStatistics
 }
