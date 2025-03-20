@@ -9,6 +9,9 @@
         ".devcontainer/postCreateCommand.sh"
     ],
     "workspaceFolder": "/workspace",
+    "features": {
+      "ghcr.io/warrenbuckley/codespace-features/sqlite:latest": {}
+    },
     "customizations": {
         "vscode": {
           "extensions": [
