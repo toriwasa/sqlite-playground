@@ -24,6 +24,7 @@ flowchart TD
 - Currently includes stock price models:
   - `StockPrice`: Basic stock price information with stock ID and price
   - `DailyStockPrice`: Stock price with date information, embedding StockPrice
+  - `StockPriceStatistics`: Statistical information for a collection of stock prices, including average, max, min, and standard deviation
 
 ### Use Case Layer
 - Implements business logic and rules

@@ -9,7 +9,7 @@ This project serves as a template repository for creating CLI tools in Golang wi
 - **Database Integration**: Includes SQLite integration for local stock price data storage
 - **Multiple Interfaces**: Supports both command-line and API interfaces for stock data access
 - **Testing**: Includes a testing framework and guidelines
-- **Stock Data Management**: Enables storage and retrieval of stock price information
+- **Stock Data Management**: Enables storage, retrieval, and statistical analysis of stock price information
 
 ## Intended Usage
 1. Clone the repository
@@ -24,7 +24,10 @@ This project serves as a template repository for creating CLI tools in Golang wi
   - Consistent code organization
   - Well-defined interfaces between layers
   - Easy to test and maintain
-  - Stock price domain models ready to use
+  - Stock price domain models ready to use:
+    - Basic stock price information
+    - Daily stock price data with dates
+    - Statistical analysis of stock price collections
 
 - **End Users**:
   - Intuitive command-line interface for stock data operations

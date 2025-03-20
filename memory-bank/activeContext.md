@@ -1,19 +1,22 @@
 # Active Context
 
 ## Current Work Focus
-The project is currently in its initial setup phase with some domain models being defined. The basic directory structure has been established according to clean architecture principles, but most components are still to be implemented.
+The project is currently in its initial setup phase with domain models for stock prices being defined. The basic directory structure has been established according to clean architecture principles, but most components are still to be implemented.
 
 ## Recent Changes
 - Created the basic project structure
 - Set up the main.go entry point
 - Implemented a basic CUI handler with flag parsing
 - Added logging configuration
-- Defined initial domain models for stock prices
+- Defined domain models for stock prices (StockPrice, DailyStockPrice, StockPriceStatistics)
 
 ## Current State
 - The project is a template repository for Golang CLI applications with SQLite
 - The basic structure and CUI handler are implemented
-- Initial domain models for stock prices have been defined
+- Domain models for stock prices have been defined:
+  - StockPrice: Basic stock price information with stock ID and price
+  - DailyStockPrice: Stock price with date information, embedding StockPrice
+  - StockPriceStatistics: Statistical information for a collection of stock prices
 - No use cases, infrastructure components, or controllers are defined yet
 - The CUI handler only handles a verbose flag (-v) for logging control
 
