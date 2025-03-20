@@ -14,7 +14,7 @@ import (
 func main() {
 	// コマンドライン引数を定義
 	tsvPath := flag.String("tsv", "internal/data/sample_daily_stock_price.tsv", "Path to the TSV file")
-	dbPath := flag.String("db", "stock_price.db", "Path to the SQLite database file")
+	dbPath := flag.String("db", "sqlite_data/stock_price.db", "Path to the SQLite database file")
 	verbose := flag.Bool("v", false, "Enable verbose output")
 	flag.Parse()
 

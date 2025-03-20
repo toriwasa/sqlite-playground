@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// コマンドライン引数を定義
-	dbPath := flag.String("db", "stock_price.db", "Path to the SQLite database file")
+	dbPath := flag.String("db", "sqlite_data/stock_price.db", "Path to the SQLite database file")
 	flag.Parse()
 
 	// データベースからデータを取得
