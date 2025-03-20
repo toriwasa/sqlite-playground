@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/toriwasa/sqlite-playground/internal/presenter/cui"
+	"github.com/toriwasa/sqlite-playground/internal/handler/cui"
 )
 
 func main() {
