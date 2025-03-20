@@ -21,6 +21,9 @@ flowchart TD
 - Contains the core business entities (models)
 - Defines the structure and behavior of domain objects
 - Has no dependencies on other layers
+- Currently includes stock price models:
+  - `StockPrice`: Basic stock price information with stock ID and price
+  - `DailyStockPrice`: Stock price with date information, embedding StockPrice
 
 ### Use Case Layer
 - Implements business logic and rules

@@ -39,3 +39,7 @@
 - usecase 配下のビジネスロジック部分は usecase/mylogic/mylogic.go に実装する
 - -> 用途に応じてパッケージ名は変更する
 
+## Cline導入でやったこと
+- .clinerules 作成
+- memory-bank ディレクトリ作成
+- "initialize memory bank" を実行して memory-bank 配下に開発知識ファイルを生成

@@ -64,6 +64,7 @@ go test -v -cover ./...
 - Comments explaining function purpose, parameters, and return values
 - Complex logic broken down into smaller, named operations
 - Literal values defined as constants at the top of files
+- Japanese comments used for domain model explanations
 
 ### Architecture Constraints
 - Domain models defined in domain/models package
@@ -71,3 +72,4 @@ go test -v -cover ./...
 - Business logic in usecase package as pure functions
 - Controller functions coordinate calls to infrastructure and usecase functions
 - Handler functions process input parameters and call controller functions
+- Stock price domain models use embedding for composition

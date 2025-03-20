@@ -1,18 +1,20 @@
 # Active Context
 
 ## Current Work Focus
-The project is currently in its initial setup phase. The basic directory structure has been established according to clean architecture principles, but most components are still to be implemented.
+The project is currently in its initial setup phase with some domain models being defined. The basic directory structure has been established according to clean architecture principles, but most components are still to be implemented.
 
 ## Recent Changes
 - Created the basic project structure
 - Set up the main.go entry point
 - Implemented a basic CUI handler with flag parsing
 - Added logging configuration
+- Defined initial domain models for stock prices
 
 ## Current State
 - The project is a template repository for Golang CLI applications with SQLite
-- Only the basic structure and CUI handler are implemented
-- No domain models, use cases, or infrastructure components are defined yet
+- The basic structure and CUI handler are implemented
+- Initial domain models for stock prices have been defined
+- No use cases, infrastructure components, or controllers are defined yet
 - The CUI handler only handles a verbose flag (-v) for logging control
 
 ## Active Decisions
@@ -22,11 +24,11 @@ The project is currently in its initial setup phase. The basic directory structu
 - Focusing on standard library usage with minimal external dependencies
 
 ## Next Steps
-1. Define domain models in the internal/domain/models package
+1. Define additional domain models in the internal/domain/models package
 2. Implement infrastructure components for file, database, and API operations
-3. Develop use cases with business logic
+3. Develop use cases with business logic for stock price operations
 4. Create controllers to coordinate between use cases and infrastructure
-5. Enhance the CUI handler to process more command-line arguments
+5. Enhance the CUI handler to process stock-related command-line arguments
 6. Implement the API handler for web interface
 7. Write unit tests for business logic
 8. Add documentation and examples
